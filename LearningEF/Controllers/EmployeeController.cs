@@ -26,5 +26,28 @@ namespace LearningEF.Controllers
                 return ResponseMessage(response);
             }
         }
+
+        public IHttpActionResult Get(int id)
+        {
+            using (var context = new mydbEntities())
+            {
+                var Query = context.Employees.Where(employee => employee.id == id);
+                var response = new HttpResponseMessage();
+
+                if (Query.Count() > 0)
+                {
+                    var employee_found = Query.FirstOrDefault<Employee>();
+                    string dataString = employee_found.Firstname + " " + employee_found.Lastname + " " + employee_found.Position + " " + employee_found.Salary + "<br>";
+                    response.Content = new StringContent("<htmk> Fetch ,, data have -> <br>" + dataString + "</html>");
+                    return ResponseMessage(response);
+                }
+                else
+                {
+                    response.StatusCode = HttpStatusCode.BadRequest;
+                    response.Content = new StringContent("<html> Can't find your employee</html>");
+                    return ResponseMessage(response);
+                }
+            }
+        }
     }
 }
