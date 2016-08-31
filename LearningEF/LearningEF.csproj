@@ -146,6 +146,7 @@
     <Compile Include="Models\Employee.cs">
       <DependentUpon>mydb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MyDataForm.cs" />
     <Compile Include="Models\mydb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

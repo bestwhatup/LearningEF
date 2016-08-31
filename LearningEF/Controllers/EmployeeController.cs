@@ -1,6 +1,7 @@
 ﻿using LearningEF.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -49,5 +50,40 @@ namespace LearningEF.Controllers
                 }
             }
         }
+
+        /*
+         * Example method for receive Data from request
+         */
+
+        /*
+        public IHttpActionResult Post(MyDataForm formData)
+        {
+            var response = new HttpResponseMessage();
+            response.StatusCode = HttpStatusCode.OK;
+            if (formData.Data != null)
+            {
+                response.Content = new StringContent(formData.Data);
+            }
+            else
+            {
+                response.Content = new StringContent("NULL");
+            }
+
+            return ResponseMessage(response);
+        }
+        */
+        
+
+        /*
+        public IHttpActionResult Post(Employee employee)
+        {
+            var response = new HttpResponseMessage();
+            response.StatusCode = HttpStatusCode.OK;
+            string responseString = employee.Firstname + " " + employee.Lastname + " " + employee.Position + " " + employee.Salary;
+            response.Content = new StringContent(responseString);
+            return ResponseMessage(response);
+        }
+        */
+
     }
 }
